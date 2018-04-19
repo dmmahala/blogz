@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action='/newpost' method='POST'>
+    <table>
+        <tr>
+            <td><label for='title'>Title for your new blog:</label></td>
+            <td>
+                <input type='text' name='title'>
+            </td>
+        </tr>
+        <tr>
+            <td><label for='blog'>Your new blog:</label></td>
+            <td>
+                <textarea name='blog'></textarea>
+            </td>
+        </tr>
+    </table>
+    <input type='submit' value='Post it!'>
+</form>
+{% endblock %}

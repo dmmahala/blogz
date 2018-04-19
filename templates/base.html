@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{page_title}}</title>
+        <style>
+        .error {
+            color: red;
+        }
+        nav ul {
+            padding: 0;
+            display: inline-block;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        nav #user-account {
+            float: right;
+        }    
+        </style>
+
+    </head>
+    <body>
+        <nav>
+            <ul id="user-account">
+                <li><a href="/login">login</a></li>
+                <li><a href="/logout">logout</a></li>
+            </ul>
+            <ul>
+                <li><a href="/">home</a></li>
+                <li><a href="/blog">all posts</a></li>
+                <li><a href="/newpost">new post</a></li>
+            </ul>
+        </nav>
+
+        <h1 style='text-align: center;'>{{page_title}}</h1>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        <ul>
+            {% for category,message in messages %}
+                <li class="{{category}}">{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>

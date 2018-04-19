@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for blog in blogs %}
+    {% for user in users %}
+        {% if blog.owner_id == user.id %}
+        {% set username = user.user %}
+        <h2><a href='/blog?id={{blog.id}}'>{{blog.title}}</a></h2><p>by <a href='/user?id={{blog.owner_id}}'>{{username}}</a></p>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}
