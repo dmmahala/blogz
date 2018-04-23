@@ -137,7 +137,7 @@ def list_blogs():
         entry = Blog.query.filter_by(id=blog_id).first()
         author = User.query.filter_by(id=entry.owner_id).first()
         return render_template('view-post.html', page_title=entry.title, entry=entry, author=author)
-    return render_template('list-blogs.html', blogs=blogs, users=users)
+    return render_template('list-blogs.html', blogs=blogs, users=users, page_title='blogs!')
 
 @app.route('/user', methods=['GET'])
 def user():
